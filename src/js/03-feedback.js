@@ -12,6 +12,13 @@ const refs = {
 refs.form.addEventListener('submit', onFormSubmit);
 refs.form.addEventListener('input', throttle(inputValue, 1000));
 
+if (formData.email) {
+  email.value = formData.email;
+}
+if (formData.message) {
+  textarea.value = formData.message;
+}
+
 populateInput();
 
 function onFormSubmit(evt) {
