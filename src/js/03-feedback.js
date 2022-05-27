@@ -19,6 +19,7 @@ populateInput();
 function onFormSubmit(evt) {
   evt.preventDefault();
   evt.currentTarget.reset();
+
   localStorage.removeItem(STORAGE_KEY);
 }
 
@@ -29,6 +30,7 @@ function onFormSubmit(evt) {
 // }
 
 function inputValue(e) {
+  console.log(formData);
   formData[e.target.name] = e.target.value;
   const savedString = JSON.stringify(formData);
   localStorage.setItem(STORAGE_KEY, savedString);
