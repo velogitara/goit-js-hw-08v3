@@ -12,13 +12,6 @@ const refs = {
 refs.form.addEventListener('submit', onFormSubmit);
 refs.form.addEventListener('input', throttle(inputValue, 1000));
 
-if (formData.email) {
-  email.value = formData.email;
-}
-if (formData.message) {
-  textarea.value = formData.message;
-}
-
 populateInput();
 
 function onFormSubmit(evt) {
@@ -47,8 +40,14 @@ function populateInput() {
   const parsedInput = JSON.parse(savedInput);
   // console.log(refs.form.email.value);
 
-  if (savedInput) {
-    refs.form.email.value = parsedInput.email;
-    refs.form.message.value = parsedInput.message;
+  // if (savedInput) {
+  //   refs.form.email.value = parsedInput.email;
+  //   refs.form.message.value = parsedInput.message;
+  // }
+  if (formData.email) {
+    email.value = formData.email;
+  }
+  if (formData.message) {
+    textarea.value = formData.message;
   }
 }
