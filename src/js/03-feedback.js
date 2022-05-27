@@ -11,7 +11,6 @@ const refs = {
 
 refs.form.addEventListener('submit', onFormSubmit);
 refs.form.addEventListener('input', throttle(inputValue, 1000));
-// console.log(refs.form);
 
 populateInput();
 
@@ -19,11 +18,15 @@ function onFormSubmit(evt) {
   evt.preventDefault();
 
   if (!formData.email || !formData.message) {
-    alert('Заповніть, будь ласка, всі поля форми');
+    alert('Please, all fields are required!!!');
+  } else {
+    console.log(formData);
+    evt.currentTarget.reset();
+
+    localStorage.removeItem(STORAGE_KEY);
+    formData.email = '';
+    formData.message = '';
   }
-  evt.currentTarget.reset();
-  console.log(formData);
-  localStorage.removeItem(STORAGE_KEY);
 }
 
 function inputValue(e) {
