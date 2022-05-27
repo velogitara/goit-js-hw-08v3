@@ -17,6 +17,10 @@ populateInput();
 
 function onFormSubmit(evt) {
   evt.preventDefault();
+
+  if (!formData.email || !formData.message) {
+    alert('Заповніть, будь ласка, всі поля форми');
+  }
   evt.currentTarget.reset();
   console.log(formData);
   localStorage.removeItem(STORAGE_KEY);
