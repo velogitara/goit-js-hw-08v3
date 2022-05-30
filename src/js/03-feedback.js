@@ -33,21 +33,22 @@ function inputValue(e) {
   formData[e.target.name] = e.target.value;
   const savedString = JSON.stringify(formData);
   localStorage.setItem(STORAGE_KEY, savedString);
+  console.log(e.target);
 }
 
 function populateInput() {
   const savedInput = localStorage.getItem(STORAGE_KEY);
   const parsedInput = JSON.parse(savedInput);
-  // console.log(refs.form.email.value);
+  console.log(parsedInput);
 
-  // if (savedInput) {
-  //   refs.form.email.value = parsedInput.email;
-  //   refs.form.message.value = parsedInput.message;
-  // }
-  if (formData.email) {
-    email.value = formData.email;
+  if (parsedInput.email) {
+    const savedString = JSON.stringify(formData);
+    localStorage.setItem(STORAGE_KEY, savedString);
+    refs.form.email.value = parsedInput.email;
   }
-  if (formData.message) {
-    textarea.value = formData.message;
+  if (parsedInput.message) {
+    const savedString = JSON.stringify(formData);
+    localStorage.setItem(STORAGE_KEY, savedString);
+    refs.form.message.value = parsedInput.message;
   }
 }
